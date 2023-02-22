@@ -58,7 +58,7 @@ app.delete('/users/:id', checkUserId, (req, res) =>{
 
     users.splice(index, 1)
 
-    //Colocar o .json() pois se não da erro
+    //Colocar o .json() se não da erro
     return res.status(204).json()
 })
 
