@@ -14,6 +14,8 @@ app.use(cors())
 
 const users = []
 
+const link = "https://camposleo95.github.io/code-club-project-node/"
+
 //Middleware é uma função que serve como um verificador entre as rotas ele erece os mesmos parametros de uma rota e pode exercer a mesma função das rotas
 
 const checkUserId = (req, res, next) =>{
@@ -33,7 +35,7 @@ const checkUserId = (req, res, next) =>{
     next()
 }
 
-app.get('/users', (req, res) =>{
+app.get(`${link}/users`, (req, res) =>{
     
     return res.json(users)     
 })
