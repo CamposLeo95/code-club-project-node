@@ -1,10 +1,16 @@
 const express = require('express')
 const uuid = require('uuid')
+const cors = require('cors')
 
 const port = 5500
 const app = express()
 
 app.use(express.json())
+
+//Cors é importante pois ele determina quais rotas poderam ter acesso ao nosso back-end.
+
+//Caso não coloque nada ele libera pra geral!
+app.use(cors())
 
 const users = []
 
@@ -29,8 +35,7 @@ const checkUserId = (req, res, next) =>{
 
 app.get('/users', (req, res) =>{
     
-    return res.json(users)   
-    
+    return res.json(users)     
 })
 
 app.post('/users', (req, res) => {
@@ -64,7 +69,6 @@ app.delete('/users/:id', checkUserId, (req, res) =>{
 
 app.listen(port, (err)=>{
     err ? console.log(err) 
-        : console.log('Sevidor rodando');
-    
+        : console.log('Sevidor rodando');  
 })
 
